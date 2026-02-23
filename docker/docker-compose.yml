@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: wechat-articles-db
+    environment:
+      POSTGRES_DB: wechat_articles
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      TZ: Asia/Shanghai
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d wechat_articles"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - wechat-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: wechat-articles-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - wechat-network
+
+  # wewe-rss Service
+  wewe-rss:
+    image: cooderl/wewe-rss:latest
+    container_name: wechat-articles-rss
+    environment:
+      DATABASE_URL: postgresql://admin:password123@postgres:5432/wewe_rss
+      AUTH_CODE: your_auth_code_here
+      TZ: Asia/Shanghai
+    ports:
+      - "4000:4000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - wechat-network
+    restart: unless-stopped
+
+  # Backend API
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../docker/backend.Dockerfile
+    container_name: wechat-articles-backend
+    environment:
+      DATABASE_URL: postgresql://admin:password123@postgres:5432/wechat_articles
+      REDIS_URL: redis://redis:6379
+      WEWE_RSS_URL: http://wewe-rss:4000
+      WEWE_RSS_AUTH_CODE: your_auth_code_here
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_MODEL: gpt-4-turbo-preview
+      SECRET_KEY: your_secret_key_change_in_production
+      CORS_ORIGINS: http://localhost:3000,http://localhost:5173
+      DEBUG: "True"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      wewe-rss:
+        condition: service_started
+    volumes:
+      - ../backend:/app
+      - media_files:/app/media
+    networks:
+      - wechat-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  media_files:
+
+networks:
+  wechat-network:
+    driver: bridge
