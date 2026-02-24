@@ -2,6 +2,17 @@
 
 一个智能的微信公众号文章管理和知识提取系统，帮助你将碎片化的公众号文章转化为结构化的知识库。
 
+## 🚀 快速部署
+
+### 一键部署到云端（完全免费）
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/j-lab-10404/wechat-articles&root-directory=frontend)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/j-lab-10404/wechat-articles)
+
+**5 分钟部署指南：** [DEPLOY_NOW.md](DEPLOY_NOW.md)
+
+**详细部署教程：** [docs/DEPLOY_TUTORIAL.md](docs/DEPLOY_TUTORIAL.md)
+
 ## 🌟 核心功能
 
 ### 1. 数据获取
