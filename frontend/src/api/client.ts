@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+// 支持环境变量配置 API 地址
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
+
 const client = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE_URL,
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json'
