@@ -165,9 +165,10 @@ DEBUG = False
 填写以下信息：
 
 - **Framework Preset**: `Vite`
-- **Root Directory**: `frontend`
+- **Root Directory**: `frontend` （重要！必须选择）
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist`
+- **Install Command**: `npm install`
 
 ### 3. 添加环境变量
 

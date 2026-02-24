@@ -8,9 +8,14 @@
 
 1. 点击上面的按钮
 2. 用 GitHub 登录 Vercel
-3. 填写环境变量（先留空，后面再填）
-4. 点击 "Deploy"
-5. 等待部署完成，记下你的 URL
+3. **重要：在 "Configure Project" 页面**
+   - Root Directory: 选择 `frontend`
+   - Framework Preset: 选择 `Vite`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. 填写环境变量（先留空，后面再填）
+5. 点击 "Deploy"
+6. 等待部署完成，记下你的 URL
 
 ### 第二步：点击按钮部署后端
 
