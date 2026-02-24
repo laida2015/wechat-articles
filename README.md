@@ -6,8 +6,8 @@
 
 ### 一键部署到云端（完全免费）
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/j-lab-10404/wechat-articles&root-directory=frontend)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/j-lab-10404/wechat-articles)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/laida2015/wechat-articles&root-directory=frontend)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/laida2015/wechat-articles)
 
 **5 分钟部署指南：** [DEPLOY_NOW.md](DEPLOY_NOW.md)
 
