@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     # OpenAI
     OPENAI_API_KEY: str
     OPENAI_MODEL: str = "gpt-4-turbo-preview"
+    OPENAI_BASE_URL: str = "https://api.openai.com/v1"  # 支持自定义，如 DeepSeek
     
     # Application
     APP_NAME: str = "WeChat Articles Knowledge Base"

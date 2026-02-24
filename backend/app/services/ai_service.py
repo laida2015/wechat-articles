@@ -9,7 +9,10 @@ class AIService:
     """Service for AI-powered article analysis."""
     
     def __init__(self):
-        self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+        self.client = AsyncOpenAI(
+            api_key=settings.OPENAI_API_KEY,
+            base_url=settings.OPENAI_BASE_URL
+        )
         self.model = settings.OPENAI_MODEL
     
     async def generate_summary(self, title: str, content: str, max_length: int = 200) -> str:
