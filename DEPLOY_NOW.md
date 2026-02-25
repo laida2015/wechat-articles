@@ -4,7 +4,7 @@
 
 ### 第一步：点击按钮部署前端
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/j-lab-10404/wechat-articles&root-directory=frontend&env=VITE_API_BASE_URL&envDescription=Backend%20API%20URL&project-name=wechat-articles&repository-name=wechat-articles)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/laida2015/wechat-articles&root-directory=frontend&env=VITE_API_BASE_URL&envDescription=Backend%20API%20URL&project-name=wechat-articles&repository-name=wechat-articles)
 
 1. 点击上面的按钮
 2. 用 GitHub 登录 Vercel
@@ -19,7 +19,7 @@
 
 ### 第二步：点击按钮部署后端
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/j-lab-10404/wechat-articles)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/laida2015/wechat-articles)
 
 1. 点击上面的按钮
 2. 用 GitHub 登录 Render
